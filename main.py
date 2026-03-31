@@ -7,19 +7,18 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Honeybee Game")
 
 background = pygame.image.load("Images/background.png").convert_alpha()
-hive = pygame.image.load("Images/hive.png").convert_alpha
+hive = pygame.image.load("Images/hive.png").convert_alpha()
 
 clock = pygame.time.Clock()
 
 flowers = []
 flower_count = 10
 state = "menu"
-day_length = 10000
+day_length = 1000
 start_time = 0
 honey = 0
 day = 1
 max_days = 10
-current_time = pygame.time.get_ticks()
 
 
 class Honeybee:
@@ -165,6 +164,8 @@ while running:
                     honey += random.randint(1, 3)
                     flower.active = False
 
+
+        current_time = pygame.time.get_ticks()
         elapsed_time = current_time - start_time
         timer_time = (max(0, day_length - elapsed_time)+1)
 
@@ -197,6 +198,12 @@ while running:
 
         draw_text("Winter Has Come...", 60, (255, 255, 255), WIDTH // 2, 100)
         draw_text(f"Total Honey: {int(honey)}", 40, (200, 200, 200), WIDTH // 2, 150)
+
+        draw_text(f"Bees might be small, but they do a huge job for us!", 30, (150, 150, 150), WIDTH // 2, 230)
+        draw_text(f"Without bees, we wouldn't have many of the fruits and vegetables we love.", 30, (150, 150, 150), WIDTH // 2, 270)
+        draw_text(f"Let's do our part to protect bees and their habitats!", 30, (150, 150, 150), WIDTH // 2, 310)
+        draw_text(f"Planting flowers, reducing pesticide use, and supporting local beekeepers can all help!", 30, (150, 150, 150), WIDTH // 2, 350)
+        draw_text(f"Together, we can make a difference for our buzzing friends!", 30, (150, 150, 150), WIDTH // 2, 390)
 
         draw_text("Press SPACE to Restart", 30, (150, 150, 150), WIDTH // 2, 500)
 
